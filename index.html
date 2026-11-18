@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コーヒー豆のご紹介 | 〇〇珈琲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <p class="header__shop">〇〇珈琲</p>
+    <h1 class="header__title">Our Beans</h1>
+    <p class="header__lead">当店で取り扱っているコーヒー豆のご紹介です。</p>
+  </header>
+
+  <main class="main">
+
+    <!-- 焙煎度の凡例 -->
+    <section class="legend">
+      <h2 class="legend__title">焙煎度について</h2>
+      <p class="legend__text">
+        豆の数が多いほど深煎りです。浅煎りは酸味と華やかさ、深煎りは苦味とコクが特徴です。
+      </p>
+    </section>
+
+    <!-- 豆一覧：中身はGoogleスプレッドシートから自動で作られます -->
+    <p class="status" id="status">読み込み中…</p>
+    <ul class="bean-list" id="bean-list"></ul>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 〇〇珈琲</p>
+  </footer>
+
+  <!-- カード1枚分のひな形（スプレッドシートの1行ごとに複製されます） -->
+  <template id="bean-card-template">
+    <li class="bean-card">
+      <div class="bean-card__body">
+        <h3 class="bean-card__name"></h3>
+        <dl class="bean-card__info">
+          <div class="bean-card__row">
+            <dt>焙煎度</dt>
+            <dd>
+              <span class="roast">
+                <span class="roast__beans" aria-hidden="true">
+                  <span class="bean"></span>
+                  <span class="bean"></span>
+                  <span class="bean"></span>
+                  <span class="bean"></span>
+                  <span class="bean"></span>
+                </span>
+                <span class="roast__label"></span>
+              </span>
+            </dd>
+          </div>
+          <div class="bean-card__row">
+            <dt>生産国</dt>
+            <dd class="bean-card__country"></dd>
+          </div>
+        </dl>
+        <p class="bean-card__desc"></p>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
